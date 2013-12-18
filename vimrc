@@ -737,3 +737,13 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+" svn
+"更新当前目录的代码
+map <F5>    :!svn up <cr>
+"提交SVN(当前目录)
+map <F7>    :!svn ci -m "" <cr>
+"提交SVN(当前文件)前先检查php语法
+map <F8>    :!php -l % > /dev/null && svn ci -m "" %<cr>
+"仅检测PHP语法
+autocmd FileType php map <silent> <F9> :!php -l %<cr>
+
